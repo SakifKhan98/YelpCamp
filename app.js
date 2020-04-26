@@ -16,8 +16,9 @@ var express         = require("express"),
 var commentRoutes       = require("./routes/comments"),
     campgroundRoutes    = require("./routes/campgrounds"),
     indexRoutes         = require("./routes/index")
+  
 
-mongoose.connect("mongodb://localhost/yelp_camp", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb://sakifKhan:<sakif1998>@cluster0-shard-00-00-5lx6k.mongodb.net:27017,cluster0-shard-00-01-5lx6k.mongodb.net:27017,cluster0-shard-00-02-5lx6k.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true });
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -50,6 +51,8 @@ app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
-app.listen(3000, function(){
-    console.log("The YelpCamp Server Has Started");
-});
+// app.listen(process.env.PORT, process.env.IP, function(){
+//     console.log("The YelpCamp Server Has Started!");
+//  });
+
+app.listen(process.env.PORT || 3000, process.env.IP, (req, res) =>{ console.log('server listening')})
