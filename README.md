@@ -2,7 +2,7 @@
 
 This is a working full-stack web application which is a basic clone of renowned Yelp Camp.
 
-### The source code is uploaded at two parts in two repositories.
+### The source code is uploaded in one single repository.
 
 > Live Link: https://limitless-journey-93179.herokuapp.com
 
